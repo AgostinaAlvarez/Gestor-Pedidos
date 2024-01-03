@@ -1,0 +1,91 @@
+
+//en una pagado hace uso de la tabla pedidos, productosCta,ventas e ingresos
+
+{
+  tipo:"pagado"
+  pedido:{id,idCliente,estado,mes,fechaEntrega,fechaPedido,subtotal,descuento,total,entregado},
+  productosCTA:[{idProducto,idPedido,cantidad}],
+  ventas:{idPedido,id},
+  ingresos:[{idVenta,monto,medio,fecha,mes}],
+}
+
+//en un pendiente de pago hace uso de las tablas pedidos,productosCta y cobrosPendientes
+
+{
+  tipo:"pendiente de pago",
+  pedido:{id,idCliente,estado,mes,fechaEntrega,fechaPedido,subtotal,descuento,total,entregado},
+  productosCTA:[{idProducto,idPedido,cantidad}],
+  cobrosPendientes: {idPedido,monto},
+}
+
+//en un pagado parcialmente hace uso de las tablas
+
+{
+  tipo:"pagado parcialmente",
+  pedido:{id,idCliente,estado,mes,fechaEntrega,fechaPedido,subtotal,descuento,total,entregado},
+  productosCTA:[{idProducto,idPedido,cantidad}],
+  ventas:{idPedido,id},
+  ingresos:[{idVenta,monto,medio,fecha,mes}],
+   cobrosPendientes: {idPedido,monto},
+}
+
+Genera dos objetos: 
+ *uno es el que voy a mandar 
+ *el otro es el que voy a setear
+
+//condicion:"pagado",
+{
+  "idPedido":"A",
+  "idCliente":"A",
+  "estado":"pagado",
+  "mes":7,
+  "fechaEntrega":"",
+  "fechaPedido":"",
+  "subtotal":0,
+  "descuento":0,
+  "total":0,
+  "estregado":"no",
+  "productosCta":[{"idProducto":"A","cantidad":1},{"idProducto":"B","cantidad":1}],
+  "idVenta":"A",
+  "ingresos":[{"monto":0,"medio":""}]
+}
+
+//condicion:"pendiente de pago",
+
+{
+  idPedido:"A",
+  idCliente:"A",
+  estado:"pendiente de pago",
+  mes:7,
+  fechaEntrega:"",
+  fechaPedido:"",
+  subtotal:0,
+  descuento:0,
+  total:0,
+  estregado:"no",
+  productosCta:[{idProducto:"A",cantidad:1},{idProducto:"B",cantidad:1}],
+  //idVenta:"A",
+  //ingresos:[{monto:0,medio:""}]
+  //cobroPendiente:2300
+}
+
+//condicion:"pagado parcialmente"
+
+{
+  idPedido:"A",
+  idCliente:"A",
+  estado:"pagado parcialmente",
+  mes:7,
+  fechaEntrega:"",
+  fechaPedido:"",
+  subtotal:0,
+  descuento:0,
+  total:0,
+  estregado:"no",
+  productosCta:[{idProducto:"A",cantidad:1},{idProducto:"B",cantidad:1}],
+  idVenta:"A",
+  ingresos:[{monto:0,medio:""}],
+  cobroPendiente:2300
+}
+
+
